@@ -1,5 +1,6 @@
 # ClientApp
 
+Its a simple angular 5 app to interact with crud feature with the help of firebase@latest api
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
 
 ## Development server
