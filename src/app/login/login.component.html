@@ -1,0 +1,34 @@
+<div class="login-form">
+    <!--{{ user$ | async | json}}-->
+    <h1>Clienty</h1>
+    <form action="" autocomplete="off" novalidate [formGroup]="form" (submit)="login()">
+      <div class="form-group ">
+        <input type="text" class="form-control"  name="user" placeholder="enter email" formControlName="email">
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="form-group log-status">
+          <input type="password" name="pass" class="form-control" placeholder="enter password" formControlName="password">
+        <i class="fa fa-lock"></i>
+      </div>
+      <span class="alert">Invalid Credentials</span>
+      <a class="link" href="" routerLink="/register">register</a>
+      <input type="submit" name="login" class="log-btn"  value="submit"> 
+      <button (click)="loginWithGoogle()" class="log-btn" >Login With Google</button>
+    </form>
+ </div>
+ 
+   <script>
+      $(document).ready(function(){
+         $('.log-btn').click(function(){
+             $('.log-status').addClass('wrong-entry');
+            $('.alert').fadeIn(500);
+            setTimeout( "$('.alert').fadeOut(1500);",3000 );
+         });
+         $('.form-control').keypress(function(){
+             $('.log-status').removeClass('wrong-entry');
+         });
+ 
+     });
+   </script>
+
+

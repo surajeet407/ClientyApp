@@ -1,0 +1,63 @@
+<div class="container">
+  <div *ngIf="isLoggedIn">
+    <div class="col-lg-6">
+      <div class="login-form">
+        <h1>Add Client</h1>
+        <form action="" #clientForm="ngForm" (submit)="onSubmit(clientForm)">
+          <input type="hidden" class="form-control" name="$key" #$key="ngModel" [(ngModel)]="clientService.selectedClient.$key">
+          <div class="form-group ">
+            <input type="number" class="form-control" required  name="balance" #name="ngModel" placeholder="enter balance" [(ngModel)]="clientService.selectedClient.balance">
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="form-group log-status">
+            <input type="email" class="form-control" required  name="email" #name="ngModel" placeholder="enter email" [(ngModel)]="clientService.selectedClient.email">
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="form-group log-status">
+            <input type="text" class="form-control" required  name="firstName" #name="ngModel" placeholder="enter first name" [(ngModel)]="clientService.selectedClient.firstName">
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="form-group log-status">
+            <input type="text" class="form-control" required  name="lastName" #name="ngModel" placeholder="enter last name" [(ngModel)]="clientService.selectedClient.lastName">
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="form-group log-status">
+            <input type="number" class="form-control" required  name="phone" #name="ngModel" placeholder="enter phone no" [(ngModel)]="clientService.selectedClient.phone">
+            <i class="fa fa-user"></i>
+          </div>
+          <span class="alert">Invalid Credentials</span>
+          <input type="submit" name="login" class="log-btn" [disabled]="!clientForm.valid"  value="Submit">
+          <input type="button" name="delete" class="log-btn" (click)="deleteClient(clientForm)" *ngIf="clientService.selectedClient.$key !=''" value="delete">
+          <input type="button" name="reset" class="log-btn" (click)="resetForm()" value="Reset">
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div text-align="center">
+        <h2>Clients list : </h2>
+      </div>
+      <table>
+          
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Balance</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of clients" (click)="onSelected(client)">
+              <td>{{client.firstName}}</td>
+              <td>{{client.lastName}}</td>
+              <td><strong>{{client.email}}</strong></td>
+              <td>{{client.balance}}</td>
+              <td>{{client.phone}}</td>
+            </tr>
+          </tbody>
+      </table>
+ </div>
+</div>
+</div>
+    
