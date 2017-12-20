@@ -1,6 +1,7 @@
 # ClientApp
 
-Its a simple angular 5 app to interact with crud feature with the help of firebase@latest api
+Its a simple angular 5 app to interact with crud feature with the help of firebase@latest api.
+type npm install to install node modules then to run this app type ng serve or npm init.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
 
 ## Development server
